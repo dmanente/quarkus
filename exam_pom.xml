@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <profiles>
+        <!-- Configure the Red Hat build of Quarkus Maven repository -->
+        <profile>
+        <id>red-hat-enterprise-maven-repository</id>
+        <repositories>
+            <repository>
+            <id>red-hat-enterprise-maven-repository</id>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            </repository>
+        </repositories>
+        <pluginRepositories>
+            <pluginRepository>
+            <id>red-hat-enterprise-maven-repository</id>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            </pluginRepository>
+        </pluginRepositories>
+        </profile>
+        <profile>
+            <id>redhat-ga-all-repository</id>
+            <repositories>
+                <repository>
+                    <id>redhat-ga-all-repository</id>
+                    <name>Red Hat GA (all)</name>
+                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <layout>default</layout>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>redhat-ga-all-repository</id>
+                    <name>Red Hat GA repository (all)</name>
+                    <url>https://maven.repository.redhat.com/ga/</url>
+                    <layout>default</layout>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>properties</id>
+            <properties>
+                <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+                <quarkus.platform.group-id>com.redhat.quarkus.platform</quarkus.platform.group-id>
+                <quarkus.platform.version>3.8.3.redhat-00003</quarkus.platform.version>
+
+                <compiler-plugin.version>3.12.1</compiler-plugin.version>
+                <maven.compiler.release>21</maven.compiler.release>
+                <surefire-plugin.version>3.2.5</surefire-plugin.version>
+            </properties>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>redhat-ga-all-repository</activeProfile>
+        <activeProfile>red-hat-enterprise-maven-repository</activeProfile>
+        <activeProfile>properties</activeProfile>
+    </activeProfiles>
+</settings>
